@@ -36,7 +36,7 @@ vector<double> SubstractTwoVectors(const vector<double>& v, const vector<double>
     vector<double> result;
 
     for (int i = 0; i < v.size(); ++i) {
-        result.push_back(v[i] + w[i]);
+        result.push_back(v[i] - w[i]);
     }
 
     return result;
@@ -77,11 +77,6 @@ vector<double> ScalarMultiply(double scalar, const vector<double>& v) {
 
 vector<double> VectorMean(const vector< vector<double> >& vectors) {
     double n = vectors.size();
-
-    // vector<double> vector_sum { 1, 2, 3};
-
-    // vector<double> vector_sum = VectorsSum(vectors);
-
     double scalar = 1 / n;
 
     return ScalarMultiply(scalar, VectorsSum(vectors));
@@ -112,9 +107,9 @@ double Magnitude(const vector<double>& v) {
 }
 
 
-/*
-
-*/
+/**/
+/**/
+/**/
 
 double SquaredDistance(const vector<double>& v, const vector<double>& w) {
     return SumOfSquares(SubstractTwoVectors(v, w));

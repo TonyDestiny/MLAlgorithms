@@ -5,6 +5,8 @@ CLANG 		= g++ -std=c++2a
 MAIN 		= main.cpp
 
 SRC_NAME 	= linear_algebra.cpp \
+			  matrix_functions.cpp \
+			  statistic.cpp \
 			  main.cpp
 
 SRC_DIR 	= ./source/

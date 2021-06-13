@@ -12,7 +12,7 @@ int main() {
     cout << "}" << endl << endl;
 
     vector<double> res_substract_vectors = SubstractTwoVectors(v, w);
-    cout << "Substract vectors:\n{ 1 2 3 }\n    +\n{ 4 5 6 }\n    =\n{ ";
+    cout << "Substract vectors:\n{ 1 2 3 }\n    -\n{ 4 5 6 }\n    =\n{ ";
     for (auto i : res_substract_vectors) {
         cout << i << " ";
     }
@@ -69,6 +69,68 @@ int main() {
     double res_dis = Distance(v, w);
 
     cout << "\nDISTANCE\n { 1 2 3 } between { 4 5 6 } = "  << res_dis << endl;
+
+    cout << "!!!CREATING MATRIX!!!" << endl;
+    vector<vector<double>> test_matrix = MakeMatrix(5, 5, [](int x, int y) { return 1 ? x == y : 0; });
+    cout << "!!!DONE!!!\n\n!!!PRINT MATRIX!!!\n\n";
+    PrintMatrix(test_matrix);
+
+    cout << "Shape matrix: ( ";
+
+    ShapeMatrix shape = Shape(test_matrix);
+    cout << shape.num_rows << " " << shape.num_cols << " )" << endl;
+
+    vector<double> row = GetRow(test_matrix, 2);
+    cout << "Get row 2: ( ";
+    for (auto& i : row) {
+        cout << i << " ";
+    }
+    cout << ")" << endl;
+
+    cout << "Get col 2:\n[\n";
+    vector<double> column = GetColumn(test_matrix, 2);
+    for (auto& i : column) {
+        cout << "  " << i << endl;
+    }
+    cout << "]\n";
+
+    double mean_v = Mean(v);
+    cout << "Mean { 1 2 3 } = " << mean_v << endl;
     
+    double median_v = Median(v);
+    cout << "Median { 1 2 3 } = " << median_v << endl;
+
+
+    vector<double> mode_vector = { 4, 8, 8, 4, 9 };
+    vector<double> mods = Mode(mode_vector);
+
+    cout << "Mode" << ( mods.size() == 1 ? ":" : "s:" );
+    for ( int x : mods ) cout << ' ' << x;
+    cout << '\n';
+
+    double quantile = Quantile(mode_vector, 0.10);
+    cout << "Quantile 10% = " << quantile << endl;
+    quantile = Quantile(mode_vector, 0.50);
+    cout << "Quantile 50% = " << quantile << endl;
+    quantile = Quantile(mode_vector, 0.90);
+    cout << "Quantile 90% = " << quantile << endl;
+
+    double variance = Variance(mode_vector);
+    cout << "Variance = " << variance << endl;
+
+    double std_dev = StandartDeviation(mode_vector);
+    cout << "Standart deviation = " << std_dev << endl;
+
+    double interquantile = InterquantileRange(mode_vector);
+    cout << "Interquantile range = " << interquantile << endl;
+
+    double covariance = Covariance(v, w);
+    cout << "Covariance = " << covariance << endl;
+
+    double correlation = Correlation(v, w);
+    cout << "Correlation = " << correlation << endl; 
+
+    cout << rand() << endl;
+
     return 0;
 }
